@@ -23,8 +23,6 @@ namespace Sistema_Asistencia_Personal.Controlador
                 {
                     using (NpgsqlConnection connection = c.conect())
                     {
-                        connection.Close();
-                        connection.Open();
                         string insertQuery = "UPDATE cargo set sueldohora=@sueldo, nombrecargo=@nombre WHERE id=@id";
                         using (NpgsqlCommand comand = new NpgsqlCommand(insertQuery, connection))
                         {
@@ -35,7 +33,6 @@ namespace Sistema_Asistencia_Personal.Controlador
 
                         }
                         MessageBox.Show("Update Exist", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        connection.Close();
                     }
                 }
                 catch (Exception ex)
@@ -51,7 +48,6 @@ namespace Sistema_Asistencia_Personal.Controlador
             return objeto;
 
         }
-
         public Cargo agregar(Cargo objeto)
         {
             conection c = new conection();
@@ -59,8 +55,6 @@ namespace Sistema_Asistencia_Personal.Controlador
             {
                 using (NpgsqlConnection connection = c.conect())
                 {
-                    connection.Close();
-                    connection.Open();
                     string insertQuery = "INSERT INTO cargo (sueldohora, nombrecargo) VALUES (@sueldo, @nombre);";
                     using (NpgsqlCommand comand = new NpgsqlCommand(insertQuery, connection))
                     {
@@ -70,7 +64,6 @@ namespace Sistema_Asistencia_Personal.Controlador
 
                     }
                     MessageBox.Show("Registered Carg ", "System message");
-                    connection.Close();
                 }
             }
             catch (Exception ex)
@@ -79,23 +72,14 @@ namespace Sistema_Asistencia_Personal.Controlador
             }
             return objeto;
         }
-
-
-        public void buscar(int codigo)
+        public void buscar(string codigo)
         {
             throw new NotImplementedException();
         }
-
         public void eliminar(string id)
         {
             throw new NotImplementedException();
         }
-
-        public List<Cargo> obtenerTodo()
-        {
-            return null;
-        }
-
         public void mostrar(DataTable dt)
         {
             conection c = new conection();
@@ -103,8 +87,8 @@ namespace Sistema_Asistencia_Personal.Controlador
             {
                 using (NpgsqlConnection connection = c.conect())
                 {
-                    connection.Close();
-                    connection.Open();
+                    //connection.Close();
+                    //connection.Open();
                     string insertQuery = "SELECT id, sueldohora, nombrecargo  FROM cargo";
                     using (NpgsqlCommand comand = new NpgsqlCommand(insertQuery, connection))
                     {
@@ -121,7 +105,7 @@ namespace Sistema_Asistencia_Personal.Controlador
                         }
 
                         dataReader.Close();
-                        connection.Close();
+                        //connection.Close();
                     }
 
                 }

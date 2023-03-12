@@ -27,29 +27,44 @@ namespace Sistema_Asistencia_Personal.Diseño
             cabecera.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             listado.ColumnHeadersDefaultCellStyle = cabecera;
         }
+        public static void diseñoDtvEliminado(ref DataGridView listado)
+        {
+            foreach (DataGridViewRow row in listado.Rows)
+            {
+                string estado = row.Cells["Estado"].Value.ToString();
+                if (estado.Contains("ELIMINADO"))
+                {
+                    row.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Strikeout | FontStyle.Bold);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(225, 128, 128);
+                }
+            }   
+        }
+
         public static object manejoDecimal(TextBox texto, KeyPressEventArgs e)
         {
-            if((e.KeyChar=='.')|| (e.KeyChar == ','))
+            if ((e.KeyChar == '.') || (e.KeyChar == ','))
             {
                 e.KeyChar = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
-                
+
             }
             if (char.IsDigit(e.KeyChar))
             {
-                e.Handled= false;
+                e.Handled = false;
             }
-            else if(char.IsControl(e.KeyChar))
+            else if (char.IsControl(e.KeyChar))
             {
                 e.Handled = false;
             }
-            else if(e.KeyChar=='.' && (~texto.Text.IndexOf("."))!=0)
+            else if (e.KeyChar == '.' && (~texto.Text.IndexOf(".")) != 0)
             {
                 e.Handled = true;
-            }else if (e.KeyChar == '.')
+            }
+            else if (e.KeyChar == '.')
             {
                 e.Handled = false;
-            }else if (e.KeyChar ==',')
-            { 
+            }
+            else if (e.KeyChar == ',')
+            {
                 e.Handled = false;
             }
             else
@@ -57,6 +72,9 @@ namespace Sistema_Asistencia_Personal.Diseño
                 e.Handled = true;
             }
             return null;
-        }       
+        }
+
+
     }
+
 }

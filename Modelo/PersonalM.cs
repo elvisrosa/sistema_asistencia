@@ -38,7 +38,7 @@ namespace Sistema_Asistencia_Personal.Modelo
         public string Estado
         {
             get { return estado; }
-            set { estado = "ACTIVO"; }
+            set { estado=value; }
         }
 
         public int Cargo

@@ -31,8 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Personal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelBusqueda = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscarPersonal = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelPaginado = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -44,8 +47,10 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panelRegistro = new System.Windows.Forms.Panel();
+            this.btnActualizarPersonal = new System.Windows.Forms.Button();
             this.dataGvCargos = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.editarC = new System.Windows.Forms.DataGridViewImageColumn();
+            this.combopais = new System.Windows.Forms.ComboBox();
             this.btnAgregarPersonal = new System.Windows.Forms.Button();
             this.panelCargo = new System.Windows.Forms.Panel();
             this.btnVolver = new System.Windows.Forms.Button();
@@ -63,7 +68,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtIdentificacion = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.txtPais = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,26 +75,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.dataGridPersonal = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.editarC = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnActualizarPersonal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panelPaginado.SuspendLayout();
             this.panelRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGvCargos)).BeginInit();
             this.panelCargo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPersonal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -104,7 +104,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(748, 60);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panelBusqueda
             // 
@@ -117,13 +116,23 @@
             this.panelBusqueda.Size = new System.Drawing.Size(294, 60);
             this.panelBusqueda.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // txtBuscarPersonal
             // 
             this.txtBuscarPersonal.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.txtBuscarPersonal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBuscarPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarPersonal.Location = new System.Drawing.Point(62, 20);
             this.txtBuscarPersonal.Name = "txtBuscarPersonal";
-            this.txtBuscarPersonal.Size = new System.Drawing.Size(232, 13);
+            this.txtBuscarPersonal.Size = new System.Drawing.Size(232, 16);
             this.txtBuscarPersonal.TabIndex = 0;
             this.txtBuscarPersonal.TextChanged += new System.EventHandler(this.txtChangedShare);
             // 
@@ -134,6 +143,36 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(227, 3);
             this.panel3.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(90, 7);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(115, 43);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Mostrar Todos";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 47);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
@@ -223,7 +262,6 @@
             this.button3.TabIndex = 0;
             this.button3.Text = "Pagina anterior";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -240,7 +278,7 @@
             this.panelRegistro.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panelRegistro.Controls.Add(this.btnActualizarPersonal);
             this.panelRegistro.Controls.Add(this.dataGvCargos);
-            this.panelRegistro.Controls.Add(this.comboBox2);
+            this.panelRegistro.Controls.Add(this.combopais);
             this.panelRegistro.Controls.Add(this.btnAgregarPersonal);
             this.panelRegistro.Controls.Add(this.panelCargo);
             this.panelRegistro.Controls.Add(this.button7);
@@ -251,7 +289,6 @@
             this.panelRegistro.Controls.Add(this.panel7);
             this.panelRegistro.Controls.Add(this.txtIdentificacion);
             this.panelRegistro.Controls.Add(this.panel6);
-            this.panelRegistro.Controls.Add(this.txtPais);
             this.panelRegistro.Controls.Add(this.panel5);
             this.panelRegistro.Controls.Add(this.txtNombre);
             this.panelRegistro.Controls.Add(this.label5);
@@ -259,11 +296,24 @@
             this.panelRegistro.Controls.Add(this.label3);
             this.panelRegistro.Controls.Add(this.label2);
             this.panelRegistro.Controls.Add(this.label1);
+            this.panelRegistro.Controls.Add(this.btnRegresar);
             this.panelRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelRegistro.Location = new System.Drawing.Point(0, 77);
             this.panelRegistro.Name = "panelRegistro";
             this.panelRegistro.Size = new System.Drawing.Size(748, 430);
             this.panelRegistro.TabIndex = 3;
+            // 
+            // btnActualizarPersonal
+            // 
+            this.btnActualizarPersonal.FlatAppearance.BorderSize = 0;
+            this.btnActualizarPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarPersonal.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizarPersonal.Image")));
+            this.btnActualizarPersonal.Location = new System.Drawing.Point(157, 302);
+            this.btnActualizarPersonal.Name = "btnActualizarPersonal";
+            this.btnActualizarPersonal.Size = new System.Drawing.Size(111, 48);
+            this.btnActualizarPersonal.TabIndex = 21;
+            this.btnActualizarPersonal.UseVisualStyleBackColor = true;
+            this.btnActualizarPersonal.Click += new System.EventHandler(this.btnActualizarPersonal_Click);
             // 
             // dataGvCargos
             // 
@@ -287,21 +337,59 @@
             this.dataGvCargos.TabIndex = 20;
             this.dataGvCargos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventoClickCelda);
             // 
-            // comboBox2
+            // editarC
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(314, 90);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(91, 28);
-            this.comboBox2.TabIndex = 19;
+            this.editarC.HeaderText = "";
+            this.editarC.Image = global::Sistema_Asistencia_Personal.Properties.Resources.editar_texto;
+            this.editarC.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.editarC.Name = "editarC";
+            // 
+            // combopais
+            // 
+            this.combopais.AllowDrop = true;
+            this.combopais.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.combopais.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.combopais.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.combopais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combopais.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combopais.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.combopais.FormattingEnabled = true;
+            this.combopais.Items.AddRange(new object[] {
+            "Argentina: Buenos Aires",
+            "Bolivia: Sucre",
+            "Brasil: Brasilia",
+            "Chile: Santiago de Chile",
+            "Colombia: Bogotá",
+            "Costa Rica: San José",
+            "Cuba: La Habana",
+            "Ecuador",
+            "El Salvador",
+            "Guatemala",
+            "Haití",
+            "Honduras",
+            "México",
+            "Nicaragua",
+            "Panamá",
+            "Paraguay",
+            "Perú",
+            "Puerto Rico",
+            "República Dominicana",
+            "Uruguay",
+            "Venezuela"});
+            this.combopais.Location = new System.Drawing.Point(143, 78);
+            this.combopais.Name = "combopais";
+            this.combopais.Size = new System.Drawing.Size(165, 29);
+            this.combopais.TabIndex = 19;
             // 
             // btnAgregarPersonal
             // 
-            this.btnAgregarPersonal.Location = new System.Drawing.Point(90, 287);
+            this.btnAgregarPersonal.FlatAppearance.BorderSize = 0;
+            this.btnAgregarPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPersonal.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarPersonal.Image")));
+            this.btnAgregarPersonal.Location = new System.Drawing.Point(157, 356);
             this.btnAgregarPersonal.Name = "btnAgregarPersonal";
-            this.btnAgregarPersonal.Size = new System.Drawing.Size(97, 48);
+            this.btnAgregarPersonal.Size = new System.Drawing.Size(111, 49);
             this.btnAgregarPersonal.TabIndex = 17;
-            this.btnAgregarPersonal.Text = "Agregar Personal";
             this.btnAgregarPersonal.UseVisualStyleBackColor = true;
             this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAgregarPersonal_Click);
             // 
@@ -321,31 +409,37 @@
             // 
             // btnVolver
             // 
+            this.btnVolver.BackgroundImage = global::Sistema_Asistencia_Personal.Properties.Resources.atras;
+            this.btnVolver.FlatAppearance.BorderSize = 0;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Location = new System.Drawing.Point(15, 116);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(71, 31);
+            this.btnVolver.Size = new System.Drawing.Size(68, 66);
             this.btnVolver.TabIndex = 19;
-            this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnActualizarCargo
             // 
-            this.btnActualizarCargo.Location = new System.Drawing.Point(187, 178);
+            this.btnActualizarCargo.FlatAppearance.BorderSize = 0;
+            this.btnActualizarCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarCargo.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizarCargo.Image")));
+            this.btnActualizarCargo.Location = new System.Drawing.Point(128, 163);
             this.btnActualizarCargo.Name = "btnActualizarCargo";
-            this.btnActualizarCargo.Size = new System.Drawing.Size(88, 75);
+            this.btnActualizarCargo.Size = new System.Drawing.Size(97, 75);
             this.btnActualizarCargo.TabIndex = 18;
-            this.btnActualizarCargo.Text = "Actualizar";
             this.btnActualizarCargo.UseVisualStyleBackColor = true;
             this.btnActualizarCargo.Click += new System.EventHandler(this.btnActualizarCargo_Click);
             // 
             // btnAgregarCargo
             // 
-            this.btnAgregarCargo.Location = new System.Drawing.Point(67, 179);
+            this.btnAgregarCargo.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCargo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCargo.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCargo.Image")));
+            this.btnAgregarCargo.Location = new System.Drawing.Point(137, 163);
             this.btnAgregarCargo.Name = "btnAgregarCargo";
             this.btnAgregarCargo.Size = new System.Drawing.Size(88, 75);
             this.btnAgregarCargo.TabIndex = 17;
-            this.btnAgregarCargo.Text = "Agregar";
             this.btnAgregarCargo.UseVisualStyleBackColor = true;
             this.btnAgregarCargo.Click += new System.EventHandler(this.btnAgregarCargo_Click);
             // 
@@ -387,9 +481,12 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(430, 152);
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(411, 166);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(62, 75);
+            this.button7.Size = new System.Drawing.Size(72, 48);
             this.button7.TabIndex = 15;
             this.button7.Text = "Agregar cargo";
             this.button7.UseVisualStyleBackColor = true;
@@ -456,15 +553,6 @@
             this.panel6.Size = new System.Drawing.Size(165, 2);
             this.panel6.TabIndex = 8;
             // 
-            // txtPais
-            // 
-            this.txtPais.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.txtPais.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPais.Location = new System.Drawing.Point(143, 89);
-            this.txtPais.Name = "txtPais";
-            this.txtPais.Size = new System.Drawing.Size(162, 19);
-            this.txtPais.TabIndex = 7;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Olive;
@@ -527,8 +615,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombres";
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRegresar.FlatAppearance.BorderSize = 0;
+            this.btnRegresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegresar.Image")));
+            this.btnRegresar.Location = new System.Drawing.Point(469, 11);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(91, 55);
+            this.btnRegresar.TabIndex = 22;
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // dataGridPersonal
             // 
+            this.dataGridPersonal.AllowUserToAddRows = false;
             this.dataGridPersonal.AllowUserToOrderColumns = true;
             this.dataGridPersonal.AllowUserToResizeRows = false;
             this.dataGridPersonal.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
@@ -549,6 +652,23 @@
             this.dataGridPersonal.Size = new System.Drawing.Size(748, 453);
             this.dataGridPersonal.TabIndex = 2;
             this.dataGridPersonal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.eventTableCustomer);
+            this.dataGridPersonal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPersonal_CellContentClick);
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "";
+            this.Editar.Image = global::Sistema_Asistencia_Personal.Properties.Resources.updated__1_;
+            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::Sistema_Asistencia_Personal.Properties.Resources.remove;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
             // 
             // dataGridViewImageColumn1
             // 
@@ -571,77 +691,6 @@
             this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             // 
-            // editarC
-            // 
-            this.editarC.HeaderText = "";
-            this.editarC.Image = global::Sistema_Asistencia_Personal.Properties.Resources.editar_texto;
-            this.editarC.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.editarC.Name = "editarC";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 33);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(90, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 43);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Mostrar Todos";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 47);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "";
-            this.Editar.Image = global::Sistema_Asistencia_Personal.Properties.Resources.updated__1_;
-            this.Editar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::Sistema_Asistencia_Personal.Properties.Resources.remove;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            // 
-            // btnActualizarPersonal
-            // 
-            this.btnActualizarPersonal.Location = new System.Drawing.Point(227, 287);
-            this.btnActualizarPersonal.Name = "btnActualizarPersonal";
-            this.btnActualizarPersonal.Size = new System.Drawing.Size(92, 48);
-            this.btnActualizarPersonal.TabIndex = 21;
-            this.btnActualizarPersonal.Text = "Registrar Cambios";
-            this.btnActualizarPersonal.UseVisualStyleBackColor = true;
-            this.btnActualizarPersonal.Click += new System.EventHandler(this.btnActualizarPersonal_Click);
-            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,10 +701,10 @@
             this.Controls.Add(this.panel1);
             this.Name = "Personal";
             this.Size = new System.Drawing.Size(748, 567);
-            this.Load += new System.EventHandler(this.Personal_Load);
             this.panel1.ResumeLayout(false);
             this.panelBusqueda.ResumeLayout(false);
             this.panelBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panelPaginado.ResumeLayout(false);
             this.panelPaginado.PerformLayout();
@@ -665,7 +714,6 @@
             this.panelCargo.ResumeLayout(false);
             this.panelCargo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPersonal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,7 +738,6 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtIdentificacion;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button button2;
@@ -715,7 +762,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridPersonal;
         private System.Windows.Forms.Button btnAgregarPersonal;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox combopais;
         private System.Windows.Forms.DataGridView dataGvCargos;
         private System.Windows.Forms.DataGridViewImageColumn editarC;
         private System.Windows.Forms.Button btnActualizarCargo;
@@ -726,5 +773,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.Button btnActualizarPersonal;
+        private System.Windows.Forms.Button btnRegresar;
     }
 }

@@ -117,17 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\remove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKbSURBVFhHzZdL
+        yE1RFMeP9/sVBh4DmVAiIgNlYkJJ+FDKRElRFOWjlEQyMSB5MzFCZqbyyHsiiYiJV/Is8szb73fut+qm
+        e859HZd//eruddZZe52z99lr3aRGTYRVsA0Owy5ohznQC/6K+sImeAC/cvgIJ2A8FKYl8Bxikp9wHU7C
+        HjgKp+EdhM8POAIm3rC6wA6IoK9hHQyHkBN0Kv1MesBsuARxz00YBQ3pAEQgn3IADAKTuAKfwGu+kfuw
+        HyaDWgzvwetPYBjUpdUQk2/UgKbAGwh7FsfARCfAsw7bVfAN1aSREE/nGocWgjaDboVZ4BNPgzVwHiKJ
+        vaC8HrHiQarK1+0Nd6CrhjKNg56lnxU1F0xkRjoqaQMY7y0M1pCnofAdvMFgRciz4TEYc72GPC0DHZ9C
+        7O4i5JIZ93I6ypGHiI770lFxcgMb1/NhoIYsXQMdV6Sj4tQNnNzYuafkI9CpqPUv1wsw9sx0lKGHoNO8
+        dFSsXoGx/Xwz5YGh08p0VJw8hDwxjT1JQ5aOg04H01FxmgrG/Qb9NWRpKeho9eusoSBtB+O6yXM1BMxS
+        5wUaClBv8FwxpoWsqqzjOt+D7hqalI2M8ewXcs+A0AiIAnJIQxOaDl/AWNaEmrUcvEm2QCPHspXwJRjj
+        FvxZ2KpqN0QSHtHuj1rk5rWmxFsU99UiqEs+tZ1vfL+WU9dzNFRSH7BnsF+MiW/AuY7fJuH1uuXXEOU0
+        sFc4BbbldkD2gZ8hrlvSbWbsHfwKzoD2hpOwplvL70JMUokPYEMzBsplEmdBn6/Q1Cc+FlzjzWDZtnNe
+        C3ZBeX2fScRymEQbtFzlb8Jlsntuuf67JFyO+dBy+a/qApiEp6V/blsuk7gIJnFbw79QP9iZJEnbb2w9
+        00soXUpZAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="editar-texto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\editar-texto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        VAAAAFQBo63EFQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABuSURBVDhPY8AD
+        rIH4MxB/AmJLkACpoBiI/0MxiE0yKAFimAEgNslgCBkACu1yLHgrEMMMALGxqbECYnBUwRSSikFRDCaw
+        SRKDPwIxOJFgcx4xXrAAYpyAfrGACwy8ARRnJlAiAUUxKKpwhDYDAwDW5VJV1LAgaQAAAABJRU5ErkJg
+        gg==
+</value>
   </data>
-  <data name="updated (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\updated (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="atras" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\atras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEjSURBVFhH7ZY9
+        DoJAEIWp9DBeAEo7ofcMauEJbOzwr/IAYm1pYWuhnbUVraAegFp3YUiUnRcMmZgYeclXLW/f22RIxqqV
+        a7lzm/OjN5sfvFjxECJeHLzp+NxtUAwWhXOXCOBOKAZLfXg1jWJcKQaLMYlCMVicSZJ+YCucuL+yp91N
+        y5wJzoQIb6cU7gyRFcjoBbY5E5wJkSRJCneGeC2gMGeCMyEECpgzwZkQdYGvFdCTnod9Snjn/47fLIDI
+        w7gzRF2gLiBaQE86mnaEaIEq/EQByWX0DX/fKS+gt1fOLMFo2y4voNfyrIQbcZdUYaJersMHa6e8QFFF
+        gzQUg5UukIxRiAvFYOntlTEK4fgUgzVcuk0qEZkXVCbSGzG7lv+pLOsJKx6RTd+zfCwAAAAASUVORK5C
+        YII=
+</value>
   </data>
 </root>

@@ -16,7 +16,21 @@ namespace Sistema_Asistencia_Personal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Vistas.MenuPrincipal());
+            Application.Run(new Vistas.TomarAsistencia());
+            //Application.Run(new Vistas.MenuPrincipal());
+
+            //Vistas.TomarAsistencia form = new Vistas.TomarAsistencia();
+            //form.FormClosed += Form_FormClosed;
+
+            //form.ShowDialog();
+            //Application.Run();
         }
+
+        /*private static void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Application.ExitThread();
+            //Application.Exit();
+        }
+        */
     }
 }

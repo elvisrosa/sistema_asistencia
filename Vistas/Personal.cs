@@ -15,6 +15,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Npgsql.Replication.PgOutput.Messages.RelationMessage;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Sistema_Asistencia_Personal.Vistas
@@ -35,11 +36,7 @@ namespace Sistema_Asistencia_Personal.Vistas
             panelRegistro.Visible = false;
             panelCargo.Visible = false;
             btnActualizarPersonal.Visible = false;
-            mostrarCargos();
             mostrarPersonal();
-            //txtCargo.TextChanged += new EventHandler(txtCargo_TextChanged);
-
-
         }
 
         private void localizarDataCargos()
@@ -51,21 +48,6 @@ namespace Sistema_Asistencia_Personal.Vistas
 
         private PersonalM personal;
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
             panelCargo.Visible = true;
@@ -73,6 +55,8 @@ namespace Sistema_Asistencia_Personal.Vistas
             panelCargo.BringToFront();
             txtNombreCargo.Clear();
             txtSueldoHora.Clear();
+            btnActualizarCargo.Visible = false;
+            btnAgregarCargo.Visible = true;
         }
 
         private void btnAgregarCargo_Click(object sender, EventArgs e)
@@ -123,9 +107,20 @@ namespace Sistema_Asistencia_Personal.Vistas
             dataGvCargos.DataSource = dv.ToTable();
             dataGvCargos.Columns[1].Visible = false;
             dataGvCargos.Columns[3].Visible = false;
-
             dataGvCargos.Visible = true; //Debes solucionar este error
 
+
+        }
+
+        private void mostrarPersonal()
+        {
+            DataTable dt = new DataTable();
+            DataView dv = new DataView(dt);
+            functions.mostrarTodo(dt);
+            dataGridPersonal.Visible = true;
+            dataGridPersonal.DataSource = dt;
+            Bases.diseñoDtvEliminado(ref dataGridPersonal);
+            Bases.diseñoDtv(ref dataGridPersonal);
         }
 
         private void filtrarPersonal()
@@ -143,15 +138,6 @@ namespace Sistema_Asistencia_Personal.Vistas
 
         }
 
-        private void mostrarPersonal()
-        {
-            DataTable dt = new DataTable();
-            DataView dv = new DataView(dt);
-            functions.mostrarTodo(dt);
-            Bases.diseñoDtv(ref dataGridPersonal);
-            dataGridPersonal.DataSource = dt;
-        }
-
         private void btnAgregarPersonal_Click(object sender, EventArgs e)
         {
             try
@@ -160,12 +146,14 @@ namespace Sistema_Asistencia_Personal.Vistas
                 personal.Nombre = txtNombre.Text;
                 personal.Cargo = idCargo;
                 personal.Identificacion = txtIdentificacion.Text;
-                personal.Pais = txtPais.Text;
+                personal.Pais = combopais.Text;
                 functions.agregar(personal);
+                functions.crearUsuarioInicioSesion(txtIdentificacion.Text);
                 limpiarcampos();
 
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
@@ -179,14 +167,9 @@ namespace Sistema_Asistencia_Personal.Vistas
             panelRegistro.Dock = DockStyle.Fill;
             limpiarcampos();
             localizarDataCargos();
+            mostrarCargos();
         }
 
-        private void limpiarcampos()
-        {
-            txtNombre.Clear();
-            txtIdentificacion.Clear();
-            txtCargo.Clear();
-        }
 
         private void txtSueldoHora_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -219,6 +202,7 @@ namespace Sistema_Asistencia_Personal.Vistas
             //MessageBox.Show(idCargo.ToString());
             dataGvCargos.Visible = false;
             //mostrar panel de los botones
+  
 
         }
 
@@ -233,6 +217,8 @@ namespace Sistema_Asistencia_Personal.Vistas
             panelCargo.Visible = true;
             panelCargo.Dock = DockStyle.Fill;
             panelCargo.BringToFront();
+            btnActualizarCargo.Visible = true;
+            btnAgregarCargo.Visible = false;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -252,24 +238,30 @@ namespace Sistema_Asistencia_Personal.Vistas
 
         }
 
-        private void Personal_Load(object sender, EventArgs e)
-        {
-        }
-
         private void eliminarPersonal()
         {
-            persona_id = dataGridPersonal.SelectedCells[2].Value.ToString();            
-            PersonalM modelo = new PersonalM();
-            //modelo.Identificacion = persona_id.ToString();
-            DialogResult result = MessageBox.Show("¿Está seguro de que desea cambiar el estado a eliminado\n"+persona_id+"?", 
-                "Confirmar cambio de estado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if(result == DialogResult.Yes)
+            estado = dataGridPersonal.SelectedCells[7].Value.ToString();
+            if (estado.Contains("ACTIVO"))
             {
-                functions.cambiarEstado(persona_id, "ELIMINADO");
-                mostrarPersonal();
+                persona_id = dataGridPersonal.SelectedCells[2].Value.ToString();
+                PersonalM modelo = new PersonalM();
+                //modelo.Identificacion = persona_id.ToString();
+                DialogResult result = MessageBox.Show("¿Está seguro de que desea cambiar el estado a eliminado\n" + persona_id + "?",
+                    "Confirmar cambio de estado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    functions.cambiarEstado(persona_id, "ELIMINADO");
+                    mostrarPersonal();
+                }
             }
-     
+            else
+            {
+                MessageBox.Show("El usuario está eliminado",
+                    "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
         }
 
         private void restaurarBdPersoa()
@@ -284,25 +276,28 @@ namespace Sistema_Asistencia_Personal.Vistas
             }
         }
 
-        private void obtenerDatosPersonal() {
+        private void obtenerDatosPersonal()
+        {
             //Estado de la persona actual
             estado = dataGridPersonal.SelectedCells[7].Value.ToString();
             txtIdentificacion.Text = dataGridPersonal.SelectedCells[2].Value.ToString();
+            idCargo = Convert.ToInt32(dataGridPersonal.SelectedCells[8].Value);
 
-            if (estado.Contains("ACTIVO")) { 
-            
-                    txtNombre.Text = dataGridPersonal.SelectedCells[3].Value.ToString();
-                    txtPais.Text = dataGridPersonal.SelectedCells[4].Value.ToString();
-                    txtCargo.Text = dataGridPersonal.SelectedCells[6].Value.ToString();
-                    txtSueldo.Text = dataGridPersonal.SelectedCells[5].Value.ToString();
-                    panelRegistro.Visible = true;
-                    dataGvCargos.Visible = false;
-                    btnAgregarPersonal.Visible = false;
-                    panelRegistro.Dock = DockStyle.Fill;
-                    panelPaginado.Visible = false;
-                    dataGridPersonal.Visible = false;
-                    txtIdentificacion.ForeColor = Color.Red;
-                    btnActualizarPersonal.Visible = true;
+            if (estado.Contains("ACTIVO"))
+            {
+
+                txtNombre.Text = dataGridPersonal.SelectedCells[3].Value.ToString();
+                combopais.Text = dataGridPersonal.SelectedCells[4].Value.ToString();
+                txtCargo.Text = dataGridPersonal.SelectedCells[6].Value.ToString();
+                txtSueldo.Text = dataGridPersonal.SelectedCells[5].Value.ToString();
+                panelRegistro.Visible = true;
+                dataGvCargos.Visible = true;
+                btnAgregarPersonal.Visible = false;
+                panelRegistro.Dock = DockStyle.Fill;
+                panelPaginado.Visible = false;
+                dataGridPersonal.Visible = false;
+                txtIdentificacion.ForeColor = Color.Red;
+                btnActualizarPersonal.Visible = true;
 
             }
             else
@@ -322,7 +317,7 @@ namespace Sistema_Asistencia_Personal.Vistas
             {
                 obtenerDatosPersonal();
             }
-           
+
         }
 
         private void btnActualizarPersonal_Click(object sender, EventArgs e)
@@ -333,19 +328,49 @@ namespace Sistema_Asistencia_Personal.Vistas
 
             modelo.Identificacion = txtIdentificacion.Text;
             modelo.Nombre = txtNombre.Text;
-            modelo.Pais = txtPais.Text;
-            modelo.Cargo = 6;
+            modelo.Pais = combopais.Text;
+            modelo.Cargo = idCargo;
 
             if (result == DialogResult.Yes)
             {
                 functions.actualizar(modelo);
                 mostrarPersonal();
+                panelRegistro.Visible = false;
             }
         }
 
         private void txtChangedShare(object sender, EventArgs e)
         {
             filtrarPersonal();
+        }
+
+    
+        private void limpiarcampos()
+        {
+            txtNombre.Clear();
+            txtIdentificacion.Clear();
+            txtCargo.Clear();
+            combopais.SelectedIndex = -1;
+        }
+
+        private void validarCamposVacios()
+        {
+
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            panelRegistro.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panelRegistro.Visible = false;
+        }
+
+        private void dataGridPersonal_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

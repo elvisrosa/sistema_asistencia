@@ -12,8 +12,7 @@ namespace Sistema_Asistencia_Personal.Controlador
         T agregar(T objeto);
         void eliminar(string id);
         T actualizar(T objeto);
-        List<T> obtenerTodo();
-        void buscar(int codigo);
+        void buscar(string codigo);
 
 
     }

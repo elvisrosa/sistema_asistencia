@@ -17,33 +17,6 @@ namespace Sistema_Asistencia_Personal.Vistas
         {
             InitializeComponent();
         }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnRegistro_Click(object sender, EventArgs e)
-        {
-  
-            
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRespaldos_Click(object sender, EventArgs e)
         {
             conection con = new conection();
@@ -56,6 +29,33 @@ namespace Sistema_Asistencia_Personal.Vistas
             Personal controlp = new Personal();
             controlp.Dock = DockStyle.Fill;
             panelPadre.Controls.Add(controlp);
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            panelPadre.Controls.Clear();
+            ControlUsuarios control = new ControlUsuarios();
+            control.Dock = DockStyle.Fill;
+            panelPadre.Controls.Add(control);
+
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            panelPadre.Controls.Clear();
+            ControlAsist control = new ControlAsist();
+            control.Dock = DockStyle.Fill;
+            panelPadre.Controls.Add(control);
+        }
+
+        private void lblNombreUsuario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
